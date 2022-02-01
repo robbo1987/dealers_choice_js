@@ -32,7 +32,7 @@ const nav = () => {
 
 
 app.get('/',(req,res,next) => {
-    const bandMates = bandBank.bandlist();
+    
     res.send(
        ` <html>
             <head>
@@ -46,16 +46,7 @@ app.get('/',(req,res,next) => {
                 <div> 
                     <img src ="./Eddie-Van-Halen.jpeg" />
                 </div>
-                <h2> bandBank.js Test </h2>
-                ${
-                    bandMates.map( mate => {
-                        return `
-                        <li>
-                        ${ mate.name}
-                        </li>
-                        `;
-                    })
-                }
+                
 
             </body>
         </html>`
@@ -65,6 +56,7 @@ app.get('/',(req,res,next) => {
 })
 
 app.get('/band',(req,res,next) => {
+    const bandMates = bandBank.bandlist();
     res.send(
        `<html>
        <head>
@@ -82,6 +74,16 @@ app.get('/band',(req,res,next) => {
            <li><a href='/band/3'> Alex Van Halen</a></li>  
            <li><a href='/band/4'> Michael Anthony</a></li>    
         </ul>
+        <h2> bandBank.js Test </h2>
+                ${
+                    bandMates.map( mate => {
+                        return `
+                        <li>
+                        ${ mate.name}
+                        </li>
+                        `;
+                    })
+                }
        </body>
    </html> `
 
