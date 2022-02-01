@@ -1,13 +1,18 @@
 
-         
+body {
+
+    background-color: aquamarine;
+}         
 h1{
     display:flex;
     justify-content:center;
+    color: blueviolet;
 }
 
 h2{
     display:flex;
     justify-content:center;
+    color:cornflowerblue
 }
 
 img {
@@ -29,6 +34,16 @@ li {
         align-items: left;
         padding:10px;
     }
+
+p{
+    font-family: verdana;
+    color: red;
+    font-weight: bolder;
+    text-indent:50px;
+    margin-left: 10px;
+
+
+}
             
 
 

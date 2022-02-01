@@ -3,6 +3,8 @@ const express = require('express');
 
 const app = express();
 
+const bandBank = require('./bandBank');
+
 
 app.use(express.static('Public'));
 
@@ -30,6 +32,7 @@ const nav = () => {
 
 
 app.get('/',(req,res,next) => {
+    const bandMates = bandBank.bandlist();
     res.send(
        ` <html>
             <head>
@@ -43,6 +46,17 @@ app.get('/',(req,res,next) => {
                 <div> 
                     <img src ="./Eddie-Van-Halen.jpeg" />
                 </div>
+                <h2> bandBank.js Test </h2>
+                ${
+                    bandMates.map( mate => {
+                        return `
+                        <li>
+                        ${ mate.name}
+                        </li>
+                        `;
+                    })
+                }
+
             </body>
         </html>`
 
