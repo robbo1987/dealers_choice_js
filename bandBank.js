@@ -5,18 +5,43 @@ const data = [ { id:1, name:"David Lee Roth", bio: "David Lee Roth (born October
 
 ];
 
+const albumData = [ { id:1, name: 'Van Halen', label: 'Warner Bros Records', year: 1978},
+{ id:1, name: 'Van Halen', label: 'Warner Bros Records', year: 1978},
+{ id:2, name: 'Van Halen II', label:'Warner Bros Records', year: 1979},
+{ id:3, name: 'Women and Children First', label: 'Warner Bros Records', year: 1980},
+{ id:4, name: 'Fair Warning', label: 'Warner Bros Records', year: 1981},
+{ id:5, name: 'Diver Down', label: 'Warner Bros Records', year: 1982},
+{ id:6, name: '1984', label: 'Warner Bros Records', year: 1984},
+{ id:7, name: '5150', label: 'Warner Bros Records', year: 1986},
+{ id:8, name: 'OU812', label: 'Warner Bros Records', year: 1988},
+{ id:9, name: 'For Unlawful Carnal knowledge', label: 'Warner Bros Records', year: 1991}
+
+
+]
+
 const bandlist = () => {
     return [...data];
 };
 
 const findBandMate = (id) => {
-    const bandmate = data.find( mate => mate.id === +id)
+    const bandmate = data.find( mate => mate.id === +id);
     return {...bandmate};
 
 
 }
 
+const albumList = () => {
+    return [...albumData];
+}
+
+const findAlbum = (id) =>{
+    const album = albumData.find( album => album.id === +id);
+    return album;
+}
+
 module.exports = {
     bandlist,
-    findBandMate
+    findBandMate,
+    albumList,
+    findAlbum
 }

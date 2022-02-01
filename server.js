@@ -121,6 +121,7 @@ app.get('/band/:id',(req,res,next) => {
 
 
 app.get('/discography',(req,res,next) => {
+    const albums = bandBank.albumList();
     res.send(
        `<html>
        <head>
@@ -131,20 +132,18 @@ app.get('/discography',(req,res,next) => {
        <body>
             ${ nav()}
            <h1> Eddie Van Halen Tribute Page</h1>
-           <h2> Van Halen Discography</h2>
+           <h2><a href = 'https://www.discogs.com/artist/94066-Van-Halen'> Van Halen Discography</a></h2>
            
-           <ul>
-               <li> Van Halen </li>
-               <li> Van Halen II </li>
-               <li> Women and Children First </li>
-               <li> Fair Warning </li>
-               <li> Diver Down </li>
-               <li> 1984 </li>
-               <li> 5150 </li>
-               <li> OU812 </li>
-               <li> For Unlawful Carnal knowledge </li>
+            ${
 
-           </ul>
+                albums.map(album => {
+                    return `
+                    <li>
+                    ${album.name} - ${album.label} - ${album.year}
+                    </li>
+                    `;
+                }).join('')
+            } 
        </body>
    </html>   `
 
